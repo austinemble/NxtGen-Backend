@@ -14,8 +14,8 @@ const storage = multer.diskStorage({
   },
 });
 
-const accessKeyId = process.env.accessKeyId;
-const secretAccessKey = process.env.secretAccessKey;
+const accessKeyId = "AKIATWD3JHM6IPLVQCMX";
+const secretAccessKey = "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";
 
 const s3 = new aws.S3({
   accessKeyId,
@@ -27,7 +27,7 @@ exports.upload = multer({ storage });
 exports.uploadS3 = multer({
   storage: multerS3({
     s3: s3,
-    bucket: "flipkart-clone-app",
+    bucket: "nxt-gen-user",
     acl: "public-read",
     metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname });
